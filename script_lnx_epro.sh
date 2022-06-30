@@ -41,9 +41,11 @@ curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
 
 # Atualize a lista de fontes e execute o comando de instalação com o pacote do desenvolvedor do unixODBC
+apt-get update 
 apt-get install mssql-tools unixodbc-dev -y
 
 # Atualizar para a versão mais recente do mssql-tools
+apt-get update 
 sudo apt-get install mssql-tools -y
 
 # Adicione /opt/mssql-tools/bin/ à variável PATH de ambiente para tornar o sqlcmd ou bcp acessível no shell bash
