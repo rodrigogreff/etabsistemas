@@ -49,7 +49,8 @@ apt-get update
 sudo apt-get install mssql-tools -y
 
 # Adicione /opt/mssql-tools/bin/ à variável PATH de ambiente para tornar o sqlcmd ou bcp acessível no shell bash
-sudo echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc source ~/.bashrc
+sudo ln -sfn /opt/mssql-tools//bin/sqlcmd /usr/bin/sqlcmd
+sudo ln -sfn /opt/mssql-tools//bin/bcp /usr/bin/bcp
 
 # Criação de diretório
 mkdir /home/adminetab/epro
