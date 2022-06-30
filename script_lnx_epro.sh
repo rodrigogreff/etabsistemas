@@ -7,7 +7,7 @@
 # Comentário: Script para criar o ambiente de Produção do sistema E-PRO e Solução Notarial.
 
 # Atualizar repositórios 
-apt-get update -y
+apt-get update 
 
 # Alterar timezone
 timedatectl set-timezone America/Sao_Paulo
@@ -44,7 +44,6 @@ curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /et
 apt-get install mssql-tools unixodbc-dev -y
 
 # Atualizar para a versão mais recente do mssql-tools
-sudo apt-get update -y
 sudo apt-get install mssql-tools -y
 
 # Adicione /opt/mssql-tools/bin/ à variável PATH de ambiente para tornar o sqlcmd ou bcp acessível no shell bash
