@@ -52,8 +52,18 @@ sudo apt-get install mssql-tools -y
 sudo ln -sfn /opt/mssql-tools//bin/sqlcmd /usr/bin/sqlcmd
 sudo ln -sfn /opt/mssql-tools//bin/bcp /usr/bin/bcp
 
+# Parar os serviços do SQL Server
+sudo systemctl stop mssql-server
+
+#Altere o agrupamento do SQL Server usando mssql-conf
+sudo /opt/mssql/bin/mssql-conf set-collation
+SQL_Latin1_General_CP1_CI_AI
+
+# Parar os serviços do SQL Server
+sudo systemctl start mssql-server
+
 # Conectar-se localmente à nova instância do SQL Server e rodar o script para criação do banco de dados
-sqlcmd -S localhost -U sa -P E-tab123 -i sql_create_db.sql
+#sqlcmd -S localhost -U sa -P E-tab123 -i sql_create_db.sql
 
 # Criação de diretório
 mkdir /home/adminetab/epro
