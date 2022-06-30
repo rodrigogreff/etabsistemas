@@ -52,19 +52,8 @@ sudo apt-get install mssql-tools -y
 sudo ln -sfn /opt/mssql-tools//bin/sqlcmd /usr/bin/sqlcmd
 sudo ln -sfn /opt/mssql-tools//bin/bcp /usr/bin/bcp
 
-# Conectar-se localmente à nova instância do SQL Server
-sqlcmd -S localhost -U sa -P E-tab123
-
-# Criar um banco de dados
-CREATE DATABASE Epro;
-
-# Rodar o script para alteração do collation do banco de dados
-alter database Epro set single_user with rollback immediate;
-go
-alter database Epro collate sql_latin1_general_cp1_ci_ai;
-go
-alter database Epro set multi_user;
-quit
+# Conectar-se localmente à nova instância do SQL Server e rodar o script para criação do banco de dados
+sqlcmd -S localhost -U sa -P E-tab123 -i sql_banco_epro.sql
 
 # Criação de diretório
 mkdir /home/adminetab/epro
