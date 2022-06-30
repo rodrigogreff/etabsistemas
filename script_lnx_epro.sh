@@ -7,7 +7,7 @@
 # Comentário: Script para criar o ambiente de Produção do sistema E-PRO e Solução Notarial.
 
 # Atualizar repositórios 
-apt-get update 
+apt-get update -y
 
 # Alterar timezone
 timedatectl set-timezone America/Sao_Paulo
@@ -32,7 +32,7 @@ systemctl status mssql-server --no-pager
 # Instalar as ferramentas de linha de comando SQL Server
 
 # Etapas a seguir para instalar o mssql-tools no Ubuntu e o curl 
-apt-get install curl
+apt-get install curl -y
 
 # Importe as chaves GPG do repositório público.
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -41,11 +41,11 @@ curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
 
 # Atualize a lista de fontes e execute o comando de instalação com o pacote do desenvolvedor do unixODBC
-apt-get install mssql-tools unixodbc-dev
+apt-get install mssql-tools unixodbc-dev -y
 
 # Atualizar para a versão mais recente do mssql-tools
-sudo apt-get update 
-sudo apt-get install mssql-tools
+sudo apt-get update -y
+sudo apt-get install mssql-tools -y
 
 # Adicione /opt/mssql-tools/bin/ à variável PATH de ambiente para tornar o sqlcmd ou bcp acessível no shell bash
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
