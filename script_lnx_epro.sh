@@ -53,7 +53,7 @@ sudo ln -sfn /opt/mssql-tools//bin/sqlcmd /usr/bin/sqlcmd
 sudo ln -sfn /opt/mssql-tools//bin/bcp /usr/bin/bcp
 
 # Conectar-se localmente à nova instância do SQL Server e rodar o script para criação do banco de dados
-sqlcmd -S localhost -U sa -P E-tab123 -i sql_banco_epro.sql
+sqlcmd -S localhost -U sa -P E-tab123 -i sql_create_db.sql
 
 # Criação de diretório
 mkdir /home/adminetab/epro
