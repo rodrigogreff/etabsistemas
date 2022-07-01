@@ -12,7 +12,7 @@ apt-get update
 # Alterar timezone
 timedatectl set-timezone America/Sao_Paulo
 
-#  Passos para a instalção do SQL Server
+# Passos para a instalção do SQL Server
 
 # Importe as chaves GPG do repositório público
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -55,15 +55,12 @@ sudo ln -sfn /opt/mssql-tools//bin/bcp /usr/bin/bcp
 # Parar os serviços do SQL Server
 sudo systemctl stop mssql-server
 
-#Altere o agrupamento do SQL Server usando mssql-conf
-sudo /opt/mssql/bin/mssql-conf set-collation
+# Altere o agrupamento do SQL Server usando mssql-conf
+sudo /opt/mssql/bin/mssql-conf set-collation 
 SQL_Latin1_General_CP1_CI_AI
 
 # Parar os serviços do SQL Server
 sudo systemctl start mssql-server
-
-# Conectar-se localmente à nova instância do SQL Server e rodar o script para criação do banco de dados
-#sqlcmd -S localhost -U sa -P E-tab123 -i sql_create_db.sql
 
 # Criação de diretório
 mkdir /home/adminetab/epro
@@ -85,6 +82,9 @@ apt-get install vsftpd -y
 # Criar usuário FTP
 adduser ftpepro
 
+# Criar diretórios no FTP pro Epro
+mkdir /home/ftpepro/Boletos
+
 # Parar os serviços antes de alterar os arquivos de configuração
 systemctl stop vsftpd.service
 systemctl stop smbd.service
@@ -100,6 +100,8 @@ mv -f vsftpd.conf /etc/vsftpd.conf
 systemctl start smbd.service
 systemctl start vsftpd.service
 
+# Remover a pasta do projeto 
+rm -rf /home/adminetab/UbuntuServer/
 
 
 
