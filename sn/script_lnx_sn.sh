@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Nome: script_lnx_epro.sh
+# Nome: script_lnx_sn.sh
 # Autor: Rodrigo Greff
 # Empresa: E-tab Tecnologia e Gestão
 #
@@ -62,46 +62,46 @@ SQL_Latin1_General_CP1_CI_AI
 # Iniciar os serviços do SQL Server
 sudo systemctl start mssql-server
 
-# Criação de diretório
-mkdir /home/useretab/system
-mkdir /home/useretab/system/sn
-mkdir /home/useretab/docs
-mkdir /home/useretab/docs/sn
-mkdir /home/useretab/docs/sn/Assinaturas
-mkdir /home/useretab/docs/sn/Censec
-mkdir /home/useretab/docs/sn/DcosImportados
-mkdir /home/useretab/docs/sn/Documentos
-mkdir /home/useretab/docs/sn/DocumentosCentralNotarial
-mkdir /home/useretab/docs/sn/DOI
-mkdir /home/useretab/docs/sn/FichasAntigas
-mkdir /home/useretab/docs/sn/FolhasDeLivro
-mkdir /home/useretab/docs/sn/Fotos
-mkdir /home/useretab/docs/sn/IBGE
-mkdir /home/useretab/docs/sn/Imagens
-mkdir /home/useretab/docs/sn/ImagensBiometria
-mkdir /home/useretab/docs/sn/Imoveis
-mkdir /home/useretab/docs/sn/ISSQN
-mkdir /home/useretab/docs/sn/LivroCaixa
-mkdir /home/useretab/docs/sn/LivroDeRegistro
-mkdir /home/useretab/docs/sn/Matrimonios
-mkdir /home/useretab/docs/sn/QRCode
-mkdir /home/useretab/docs/sn/Relatorios
-mkdir /home/useretab/docs/sn/Selos
-mkdir /home/useretab/docs/sn/SinalPublico
-mkdir /home/useretab/docs/sn/TextosCorretos
-mkdir /home/useretab/docs/sn/TextosEscrituras
-mkdir /home/useretab/docs/sn/TextosEscriturasImportacao
-mkdir /home/useretab/docs/sn/TransfVeiculos
+# Criação dos diretórios
+mkdir /home/adminetab/system
+mkdir /home/adminetab/system/sn
+mkdir /home/adminetab/docs
+mkdir /home/adminetab/docs/sn
+mkdir /home/adminetab/docs/sn/Assinaturas
+mkdir /home/adminetab/docs/sn/Censec
+mkdir /home/adminetab/docs/sn/DcosImportados
+mkdir /home/adminetab/docs/sn/Documentos
+mkdir /home/adminetab/docs/sn/DocumentosCentralNotarial
+mkdir /home/adminetab/docs/sn/DOI
+mkdir /home/adminetab/docs/sn/FichasAntigas
+mkdir /home/adminetab/docs/sn/FolhasDeLivro
+mkdir /home/adminetab/docs/sn/Fotos
+mkdir /home/adminetab/docs/sn/IBGE
+mkdir /home/adminetab/docs/sn/Imagens
+mkdir /home/adminetab/docs/sn/ImagensBiometria
+mkdir /home/adminetab/docs/sn/Imoveis
+mkdir /home/adminetab/docs/sn/ISSQN
+mkdir /home/adminetab/docs/sn/LivroCaixa
+mkdir /home/adminetab/docs/sn/LivroDeRegistro
+mkdir /home/adminetab/docs/sn/Matrimonios
+mkdir /home/adminetab/docs/sn/QRCode
+mkdir /home/adminetab/docs/sn/Relatorios
+mkdir /home/adminetab/docs/sn/Selos
+mkdir /home/adminetab/docs/sn/SinalPublico
+mkdir /home/adminetab/docs/sn/TextosCorretos
+mkdir /home/adminetab/docs/sn/TextosEscrituras
+mkdir /home/adminetab/docs/sn/TextosEscriturasImportacao
+mkdir /home/adminetab/docs/sn/TransfVeiculos
 
-# Dar permissão no diretório 
-chmod 777 -R /home/useretab/system/sn/
-chmod 777 -R /home/useretab/docs/sn/
+# Dar permissão nos diretórios 
+chmod 777 -R /home/adminetab/system/sn/
+chmod 777 -R /home/adminetab/docs/sn/
 
 # Instalar o Samba
 apt-get install samba -y
 
 # Add usuário do SO ao Samba 
-smbpasswd -a useretab
+smbpasswd -a adminetab
 
 # Parar os serviços antes de alterar os arquivos de configuração
 systemctl stop smbd.service
@@ -114,7 +114,7 @@ mv -f smb.conf /etc/samba/smb.conf
 systemctl start smbd.service
 
 # Remover a pasta do projeto 
-rm -rf /home/adminetab/UbuntuServer/
+rm -rf /home/adminetab/etabsistemas/
 
 
 

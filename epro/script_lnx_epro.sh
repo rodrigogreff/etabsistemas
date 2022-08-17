@@ -63,10 +63,12 @@ SQL_Latin1_General_CP1_CI_AI
 sudo systemctl start mssql-server
 
 # Criação de diretório
-mkdir /home/adminetab/epro
+mkdir /home/adminetab/system
+mkdir /home/adminetab/system/epro
 
 # Dar permissão no diretório 
-chmod 777 -R /home/adminetab/epro/
+chmod 777 -R /home/adminetab/system/
+chmod 777 -R /home/adminetab/system/epro/
 
 # Instalar o Samba
 apt-get install samba -y
@@ -102,7 +104,7 @@ systemctl start smbd.service
 systemctl start vsftpd.service
 
 # Remover a pasta do projeto 
-rm -rf /home/adminetab/UbuntuServer/
+rm -rf /home/adminetab/etabsistemas/
 
 
 
