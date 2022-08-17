@@ -4,7 +4,7 @@
 # Autor: Rodrigo Greff
 # Empresa: E-tab Tecnologia e Gestão
 #
-# Comentário: Script para criar o ambiente de Produção do sistema E-PRO e Solução Notarial.
+# Comentário: Script para criar o ambiente de Produção do sistema E-PRO.
 
 # Atualizar repositórios 
 apt-get update 
@@ -64,11 +64,9 @@ sudo systemctl start mssql-server
 
 # Criação de diretório
 mkdir /home/adminetab/epro
-mkdir /home/adminetab/sn
 
 # Dar permissão no diretório 
 chmod 777 -R /home/adminetab/epro/
-chmod 777 -R /home/adminetab/sn/
 
 # Instalar o Samba
 apt-get install samba -y
@@ -80,10 +78,13 @@ smbpasswd -a adminetab
 apt-get install vsftpd -y
 
 # Criar usuário FTP
-adduser ftpepro
+adduser ftpetab
 
 # Criar diretórios no FTP pro Epro
-mkdir /home/ftpepro/Boletos
+mkdir /home/ftpetab/Boletos
+
+# Dar permissão no diretório 
+chmod 777 -R /home/ftpetab/Boletos/
 
 # Parar os serviços antes de alterar os arquivos de configuração
 systemctl stop vsftpd.service
